@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-s3c1$(975kwr!-v5+8czln)+3r=p!4*n!!ccko%dg+%^vwtxsc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "cbs-1.onrender.com",
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 # Better admin titles
 ADMIN_SITE_HEADER = "LMS Admin Panel"

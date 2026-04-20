@@ -39,6 +39,12 @@ ADMIN_SITE_TITLE = "LMS Admin"
 ADMIN_INDEX_TITLE = "Welcome to LMS Dashboard"
 # Application definition
 AUTH_USER_MODEL = 'accounts.User'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://cbs-rosy.vercel.app",
+]
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True  # dev only
 INSTALLED_APPS = [
     'django.contrib.admin',

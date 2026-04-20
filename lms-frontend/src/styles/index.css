@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================= */
+/* BASE */
+/* ========================= */
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 10px;
+}
+
+/* ========================= */
+/* TYPOGRAPHY */
+/* ========================= */
+
+h1 {
+  @apply text-2xl font-semibold;
+}
+
+h2 {
+  @apply text-xl font-semibold;
+}
+
+h3 {
+  @apply text-lg font-medium;
+}
+
+/* ========================= */
+/* COMPONENT SYSTEM */
+/* ========================= */
+
+.card {
+  @apply bg-white border border-slate-200 rounded-2xl shadow-sm p-5 transition;
+}
+
+.card-hover {
+  @apply hover:shadow-md hover:scale-[1.01] transition;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition;
+}
+
+.btn-primary {
+  @apply btn bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply btn border border-slate-300 hover:bg-slate-100;
+}
+
+.btn-danger {
+  @apply btn bg-red-500 text-white hover:bg-red-600;
+}
+
+.input {
+  @apply w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none;
+}
+
+.select {
+  @apply input;
+}

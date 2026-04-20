@@ -1,0 +1,153 @@
+Topic 8: Working with Binary Files**
+
+
+8.1 What Are Binary Files?**
+
+* Binary files store data in **binary format** (0s and 1s)
+* Not human-readable
+* Examples: `.jpg`, `.png`, `.mp3`, `.pdf`, `.exe`
+
+Python reads/writes these files using **binary mode**: `rb`, `wb`, `ab`, `r+b`, etc.
+
+
+8.2 Opening Binary Files**
+
+### **Modes**
+
+| Mode          | Description                   |
+| ------------- | ----------------------------- |
+| `rb`          | Read binary file              |
+| `wb`          | Write binary file (overwrite) |
+| `ab`          | Append binary file            |
+| `r+b` / `rb+` | Read & write binary           |
+
+### **Example**
+
+```python
+file = open("image.jpg", "rb")
+```
+
+
+
+8.3 Reading Binary Files**
+
+* Binary data is read as **bytes**
+* Cannot directly print as text
+
+### **Program 1: Read Binary File**
+
+```python
+with open("image.jpg", "rb") as file:
+    data = file.read()
+    print(type(data))  # <class 'bytes'>
+    print(len(data))   # number of bytes
+```
+
+---
+
+8.4 Writing Binary Files**
+
+* Must write **bytes**
+* Use `b` prefix for byte literals or encode strings
+
+Program 2: Writing Binary Data**
+
+```python
+data = b"This is binary data"
+
+with open("file.bin", "wb") as file:
+    file.write(data)
+```
+
+---
+
+Program 3: Writing Text as Binary**
+
+```python
+text = "Hello Binary World"
+with open("text.bin", "wb") as file:
+    file.write(text.encode('utf-8'))
+```
+
+* `.encode('utf-8')` converts string to bytes
+
+---
+
+8.5 Copying a Binary File**
+
+Program 4: Copy an Image**
+
+```python
+with open("source.jpg", "rb") as src, open("copy.jpg", "wb") as dest:
+    dest.write(src.read())
+```
+
+* Reads all bytes from `source.jpg` and writes to `copy.jpg`
+
+---
+
+8.6 Appending Binary Data**
+
+```python
+extra_data = b"\x00\x01\x02"
+
+with open("file.bin", "ab") as file:
+    file.write(extra_data)
+```
+
+* Appends bytes to the existing binary file
+
+---
+
+8.7 Reading in Chunks**
+
+* Large binary files should be read in **blocks** to save memory
+
+### **Program 5: Reading in Chunks**
+
+```python
+with open("video.mp4", "rb") as file:
+    chunk_size = 1024  # 1 KB
+    while chunk := file.read(chunk_size):
+        print(len(chunk))  # process each chunk
+```
+
+* Uses **walrus operator** `:=` to read until EOF
+
+---
+
+8.8 Handling Binary Data Safely**
+
+* Always use `with` statement
+* Avoid mixing text and binary modes
+* Use proper file modes (`rb`/`wb`/`ab`)
+* Be aware of **encoding when converting between text and bytes**
+
+---
+
+8.9 Common Use Cases**
+
+* Images (`.jpg`, `.png`)
+* Audio/Video (`.mp3`, `.mp4`)
+* PDFs, Word files
+* Serialized objects (pickles)
+
+---
+
+8.10 Exam-Oriented Points**
+
+1. Binary files are opened with `b` in mode (`rb`, `wb`, etc.)
+2. Binary data is always of type `bytes`
+3. Use `.encode()` to convert strings to bytes
+4. Always read/write large binary files in chunks
+5. Use `with` statement for automatic closure
+
+---
+
+8.11 Practice Questions**
+
+1. What is the difference between text and binary files?
+2. How do you write a string as binary?
+3. How do you read a binary file in chunks?
+4. What happens if you open a binary file in text mode?
+

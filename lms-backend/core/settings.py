@@ -27,12 +27,7 @@ SECRET_KEY = 'django-insecure-s3c1$(975kwr!-v5+8czln)+3r=p!4*n!!ccko%dg+%^vwtxsc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "cbs-1.onrender.com",
-    ".onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["*"]
 
 # Better admin titles
 ADMIN_SITE_HEADER = "LMS Admin Panel"
@@ -109,7 +104,6 @@ DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=True
     )
 }
 
